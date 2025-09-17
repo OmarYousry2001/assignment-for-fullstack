@@ -172,29 +172,62 @@ namespace BL.GeneralService.CMS
             return refreshToken;
         }
 
-        public async Task<JwtAuthTokenResponse> CreateNewAccessTokenByRefreshToken(string accessToken, UserRefreshToken userRefreshToken)
+        //public async Task<JwtAuthTokenResponse> CreateNewAccessTokenByRefreshToken(string accessToken, UserRefreshToken userRefreshToken)
+        //{
+
+        //    // Generate JWT Security Token
+        //    var userId = ReadJwtToken(accessToken).Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
+        //    var user = await _userManager.FindByIdAsync(userId);
+
+        //    var generatedJwtSecurityToken = await GenerateJwtSecurityTokenAsync(user);
+        //    var NewAccessToken = new JwtSecurityTokenHandler().WriteToken(generatedJwtSecurityToken);
+
+
+        //    var refreshTokenForResponse = GetRefreshTokenForResponse(userRefreshToken.ExpiryDate, user.UserName, userRefreshToken.RefreshToken);
+
+
+        //    userRefreshToken.Token = NewAccessToken;
+        //    await _refreshTokenRepository.UpdateAsync(userRefreshToken , Guid.Parse(userId));
+
+        //    return new JwtAuthTokenResponse()
+        //    {
+        //        AccessToken = NewAccessToken,
+        //        RefreshToken = refreshTokenForResponse
+        //    };
+        //}
+
+        public async Task<JwtAuthTokenResponse> CreateNewAccessTokenByRefreshToken(string oldAccessToken, UserRefreshToken userRefreshToken)
         {
+            // Extract user ID from the old access token
+            var userId = ReadJwtToken(oldAccessToken).Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null) throw new Exception("Invalid access token.");
 
-            // Generate JWT Security Token
-            var userId = ReadJwtToken(accessToken).Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
             var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) throw new Exception("User not found.");
 
-            var generatedJwtSecurityToken = await GenerateJwtSecurityTokenAsync(user);
-            var NewAccessToken = new JwtSecurityTokenHandler().WriteToken(generatedJwtSecurityToken);
+            // Generate a new Access Token only
+            var newJwtToken = await GenerateJwtSecurityTokenAsync(user);
+            var newAccessToken = new JwtSecurityTokenHandler().WriteToken(newJwtToken);
 
+            // Update the access token in the UserRefreshToken record
+            userRefreshToken.Token = newAccessToken;
+            await _refreshTokenRepository.UpdateAsync(userRefreshToken, Guid.Parse(userId));
 
-            var refreshTokenForResponse = GetRefreshTokenForResponse(userRefreshToken.ExpiryDate, user.UserName, userRefreshToken.RefreshToken);
-
-
-            userRefreshToken.Token = NewAccessToken;
-            await _refreshTokenRepository.UpdateAsync(userRefreshToken , Guid.Parse(userId));
+            // Return the same old refresh token
+            var refreshTokenForResponse = GetRefreshTokenForResponse(
+                userRefreshToken.ExpiryDate,
+                user.UserName,
+                userRefreshToken.RefreshToken
+            );
 
             return new JwtAuthTokenResponse()
             {
-                AccessToken = NewAccessToken,
+                AccessToken = newAccessToken,
                 RefreshToken = refreshTokenForResponse
             };
         }
+
+
         public JwtSecurityToken ReadJwtToken(string accessToken)
         {
             if (string.IsNullOrEmpty(accessToken))
@@ -289,12 +322,20 @@ namespace BL.GeneralService.CMS
                 await _userService.SendConfirmUserEmailToken(user);
                 return BadRequest<JwtAuthTokenResponse>(UserResources.User_EmailNotConfirmed);
             }
+            // Update Last Login Time
+            user.LastLoginTime = DateTime.UtcNow;
+            await UpdateUserAsync(user); 
+
             //Generate JWTAuthToken
             var response = await GetJwtTokenAsync(user , loginDto.RememberMe);
             //var response = await GetJwtTokenAsync(user, loginDto.RememberMe);
 
             //return token
             return Success(response);
+        }
+        private async Task UpdateUserAsync(ApplicationUser user)
+        {
+            await _userManager.UpdateAsync(user);
         }
         public async Task<Response<bool>> SignOutAsync()
         {

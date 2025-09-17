@@ -53,7 +53,7 @@ namespace BL.GeneralService.CMS
 
             try
             {
-
+                user.EmailConfirmed = true;
                 var identityResult = await _userManager.CreateAsync(user, password);
 
                 if (!identityResult.Succeeded)
@@ -65,7 +65,7 @@ namespace BL.GeneralService.CMS
                     throw new Exception("user not founded");
                 await _userManager.AddToRoleAsync(user, Roles.User);
 
-                await SendConfirmUserEmailTokenAngular(user);
+                //await SendConfirmUserEmailTokenAngular(user);
 
                 await transaction.CommitAsync();
 
@@ -352,7 +352,6 @@ namespace BL.GeneralService.CMS
         {
             ApplicationUser newUser = new ApplicationUser
             {
-                NormalizedUserName = user.FullName,
                 Email = user.Email,
                 UserName = user.UserName
             };
