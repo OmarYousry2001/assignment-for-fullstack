@@ -23,6 +23,14 @@ namespace BL.Services.Custom
             _productRepository = productRepository;
             _mapper = mapper;
         }
+        public override async Task<Response<IEnumerable<ProductDTO>>> GetAllAsync()
+        {
+            var entitiesList = await _productRepository.ExecuteStoredProcedureAsync("GetAllProducts");
+            if (entitiesList == null) return NotFound<IEnumerable<ProductDTO>>();
+            var dtoList = _mapper.MapList<Product, ProductDTO>(entitiesList);
+            return Success(dtoList);
+        }
+     
         public override async Task<Response<bool>> SaveAsync(ProductDTO dto, Guid userId)
         {
             if (dto.Image == null && dto.ImagePath == null) return BadRequest<bool>();

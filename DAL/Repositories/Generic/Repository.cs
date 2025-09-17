@@ -294,7 +294,7 @@ namespace DAL.Repositories.Generic
         /// <summary>
         /// Executes a stored procedure and maps the results to the entity class.
         /// </summary>
-        public IEnumerable<T> ExecuteStoredProcedure(string storedProcedureName, params SqlParameter[] parameters)
+        public async Task<IEnumerable<T>> ExecuteStoredProcedureAsync(string storedProcedureName, params SqlParameter[] parameters)
         {
             try
             {
@@ -311,25 +311,34 @@ namespace DAL.Repositories.Generic
                     return param;
                 }).ToArray();
 
-                return DbSet.FromSqlRaw(storedProcedureName, safeParameters).AsNoTracking().ToList();
+                return await DbSet
+                    .FromSqlRaw(storedProcedureName, safeParameters)
+                    .AsNoTracking()
+                    .ToListAsync();
             }
             catch (SqlException sqlEx)
             {
                 if (sqlEx.Number == 50000) // Custom error from stored procedure
                 {
-                    _logger.Error(sqlEx, nameof(ExecuteStoredProcedure), $"Custom error from stored procedure: {storedProcedureName}");
+                    _logger.Error(sqlEx, nameof(ExecuteStoredProcedureAsync),
+                        $"Custom error from stored procedure: {storedProcedureName}");
                     throw new DataAccessException(sqlEx.Message, sqlEx, _logger);
                 }
 
-                HandleException(nameof(ExecuteStoredProcedure), "An SQL error occurred while executing the stored procedure.", $"SQL error occurred while executing stored procedure '[SensitiveData]'.", sqlEx);
+                HandleException(nameof(ExecuteStoredProcedureAsync),
+                    "An SQL error occurred while executing the stored procedure.",
+                    $"SQL error occurred while executing stored procedure '[SensitiveData]'.", sqlEx);
                 throw; // Rethrow the exception after logging
             }
             catch (Exception ex)
             {
-                HandleException(nameof(ExecuteStoredProcedure), "An error occurred while executing the stored procedure.", $"Error occurred while executing stored procedure '[SensitiveData]'.", ex);
+                HandleException(nameof(ExecuteStoredProcedureAsync),
+                    "An error occurred while executing the stored procedure.",
+                    $"Error occurred while executing stored procedure '[SensitiveData]'.", ex);
                 throw; // Rethrow the exception after logging
             }
         }
+
         /// <summary>
         /// Executes a custom SQL function and returns a single scalar value.
         /// </summary>

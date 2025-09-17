@@ -25,7 +25,7 @@ namespace DAL.Contracts.Repositories.Generic
         public Task<T> FindAsync(Expression<Func<T, bool>> predicate);
         public Task<int> CountAsync(Expression<Func<T, bool>> predicate);
         public Task<bool> IsExistsAsync<TValue>(string key, TValue value);
-        public IEnumerable<T> ExecuteStoredProcedure(string storedProcedureName, params SqlParameter[] parameters);
+        public Task<IEnumerable<T>> ExecuteStoredProcedureAsync(string storedProcedureName, params SqlParameter[] parameters);
         TResult ExecuteScalarSqlFunction<TResult>(string sqlFunctionQuery, params object[] parameters);
         TResult ExecuteScalarRawSql<TResult>(string sqlQuery, params object[] parameters);
         public Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>>? predicate = null, params Expression<Func<T, object>>[] includes);
