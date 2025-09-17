@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>الولاية</value>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>الرمز البريدي</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>الدولة</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="NonBinary" xml:space="preserve">
+    <value>غير ثنائي</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>مخصص</value>
+  </data>
+  <data name="MaritalStatus" xml:space="preserve">
+    <value>الحالة الاجتماعية</value>
+  </data>
+  <data name="Single" xml:space="preserve">
+    <value>أعزب</value>
+  </data>
+  <data name="Married" xml:space="preserve">
+    <value>متزوج</value>
+  </data>
+  <data name="Divorced" xml:space="preserve">
+    <value>مطلق</value>
+  </data>
+  <data name="Widowed" xml:space="preserve">
+    <value>أرمل</value>
+  </data>
+  <data name="EmploymentStatus" xml:space="preserve">
+    <value>حالة العمل</value>
+  </data>
+  <data name="Employed" xml:space="preserve">
+    <value>موظف</value>
+  </data>
+  <data name="Unemployed" xml:space="preserve">
+    <value>عاطل عن العمل</value>
+  </data>
+  <data name="Student" xml:space="preserve">
+    <value>طالب</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>متقاعد</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>المسمى الوظيفي</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>الشركة</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>القسم</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>الموقع الإلكتروني</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>رابط</value>
+  </data>
+  <data name="Bio" xml:space="preserve">
+    <value>السيرة الذاتية</value>
+  </data>
+  <data name="Interests" xml:space="preserve">
+    <value>الاهتمامات</value>
+  </data>
+  <data name="Skills" xml:space="preserve">
+    <value>المهارات</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>الخبرة</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>التعليم</value>
+  </data>
+  <data name="Certifications" xml:space="preserve">
+    <value>الشهادات</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>اللغات</value>
+  </data>
+  <data name="Hobbies" xml:space="preserve">
+    <value>الهوايات</value>
+  </data>
+  <data name="AboutMe" xml:space="preserve">
+    <value>عن نفسي</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>تاريخ الإنشاء</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="ArabicName" xml:space="preserve">
+    <value>الأسم بالعربية</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>الاسم بالإنجليزية</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="DescriptionAr" xml:space="preserve">
+    <value>الوصف بالعربية</value>
+  </data>
+  <data name="DescriptionEn" xml:space="preserve">
+    <value>الوصف بالإنجليزية</value>
+  </data>
+  <data name="ShortDescription" xml:space="preserve">
+    <value>الوصف المختصر</value>
+  </data>
+  <data name="ArabicShortDescription" xml:space="preserve">
+    <value>الوصف المختصر بالعربية</value>
+  </data>
+  <data name="EnglishShortDescription" xml:space="preserve">
+    <value>الوصف المختصر بالإنجليزية</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>الملخص</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>الملاحظات</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>التعليقات</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>التعليقات</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>التقييم</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>المراجعة</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>الوسوم</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>الكلمات المفتاحية</value>
+  </data>
+  <data name="SearchTerms" xml:space="preserve">
+    <value>مصطلحات البحث</value>
+  </data>
+  <data name="FileUpload" xml:space="preserve">
+    <value>تحميل الملفات</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="ProfilePicture" xml:space="preserve">
+    <value>صورة الملف الشخصي</value>
+  </data>
+  <data name="CoverPhoto" xml:space="preserve">
+    <value>صورة الغلاف</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>المعرض</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>الوسائط</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>المستند</value>
+  </data>
+  <data name="Agreement" xml:space="preserve">
+    <value>الاتفاقية</value>
+  </data>
+  <data name="TermsAndConditions" xml:space="preserve">
+    <value>الشروط والأحكام</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>إرسال التعليقات</value>
+  </data>
+  <data name="SearchEngineTitle" xml:space="preserve">
+    <value>عنوان محرك البحث</value>
+  </data>
+  <data name="SearchEngineDescription" xml:space="preserve">
+    <value>وصف محرك البحث</value>
+  </data>
+  <data name="SearchEngineTags" xml:space="preserve">
+    <value>علامات محرك البحث</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>اكتب</value>
+  </data>
+  <data name="EnglishTitle" xml:space="preserve">
+    <value>العنوان بالإنجليزية</value>
+  </data>
+  <data name="ArabicTitle" xml:space="preserve">
+    <value>العنوان بالعربية</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>فيس بوك</value>
+  </data>
+  <data name="LinkedIn" xml:space="preserve">
+    <value>لينكد ان</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>تويتر</value>
+  </data>
+  <data name="YouTube" xml:space="preserve">
+    <value>يوتيوب</value>
+  </data>
+  <data name="Instagram" xml:space="preserve">
+    <value>انستجرام</value>
+  </data>
+  <data name="WhatsApp" xml:space="preserve">
+    <value>واتس اب</value>
+  </data>
+  <data name="optional" xml:space="preserve">
+    <value>اختياري</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم بالكامل</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>الصورة</value>
+  </data>
+  <data name="SpecializationAR" xml:space="preserve">
+    <value>التخصص بالعربية</value>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>الايقونة</value>
+  </data>
+  <data name="SpecializationEN" xml:space="preserve">
+    <value>التخصص بالإنجليزية</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>نص</value>
+  </data>
+  <data name="ArabicContent" xml:space="preserve">
+    <value>النص عربي</value>
+  </data>
+  <data name="EnglishContent" xml:space="preserve">
+    <value>النص انجليزي</value>
+  </data>
+  <data name="ContentType" xml:space="preserve">
+    <value>نوع المحتوى</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>المحتوى</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>اختر</value>
+  </data>
+  <data name="BannerImage" xml:space="preserve">
+    <value>صورة البانر</value>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>رسالتك</value>
+  </data>
+  <data name="ShowInHomePage" xml:space="preserve">
+    <value>عرض فى الصفحة الرئيسية</value>
+  </data>
+  <data name="Tiktok" xml:space="preserve">
+    <value>تيكتوك</value>
+  </data>
+  <data name="Snapchat" xml:space="preserve">
+    <value>سناب شات</value>
+  </data>
+  <data name="ShowServices" xml:space="preserve">
+    <value>اظهار الخدمات</value>
+  </data>
+  <data name="ShowArticles" xml:space="preserve">
+    <value>اظهار المقالات</value>
+  </data>
+  <data name="ShowDoctors" xml:space="preserve">
+    <value>اظهار الأطباء</value>
+  </data>
+  <data name="ShowStatistics" xml:space="preserve">
+    <value>اظهار الأحصائيات</value>
+  </data>
+  <data name="ShowTestimonials" xml:space="preserve">
+    <value>اظهار شهادات العملاء</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>العدد</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البداية</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>وقت البداية</value>
+  </data>
+  <data name="AM" xml:space="preserve">
+    <value>ص</value>
+  </data>
+  <data name="PM" xml:space="preserve">
+    <value>م</value>
+  </data>
+  <data name="NearestLandmark" xml:space="preserve">
+    <value>أقرب معلم</value>
+  </data>
+  <data name="FullAddress" xml:space="preserve">
+    <value>العنوان الكامل</value>
+  </data>
+  <data name="AddressTitle" xml:space="preserve">
+    <value>عنوان العنوان</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="NationalId" xml:space="preserve">
+    <value>الرقم القومى</value>
+  </data>
+  <data name="TitleAr" xml:space="preserve">
+    <value>العنوان بالعربيه</value>
+  </data>
+  <data name="TitleEn" xml:space="preserve">
+    <value>العنوان بالإنجليزية</value>
+  </data>
+  <data name="ChooseCountry" xml:space="preserve">
+    <value>اختر الدولة</value>
+  </data>
+</root>
