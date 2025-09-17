@@ -23,9 +23,21 @@ namespace Shared.CustomValidation
             if (dbContext == null)
                 throw new InvalidOperationException(SystemResources.DatabaseNotAvailable);
 
+            // Get the current entity's ID to exclude it from the uniqueness check
+            var instance = validationContext.ObjectInstance;
+            var productIdProperty = instance.GetType().GetProperty("Id");
+            Guid productId = Guid.Empty;
+            if (productIdProperty != null)
+            {
+                var idValue = productIdProperty.GetValue(instance);
+                if (idValue is Guid guid)
+                    productId = guid;
+            }
+
+            // Check if any other product has the same ProductCode
             var exists = dbContext.Products
                                   .AsNoTracking()
-                                  .Any(p => p.ProductCode == productCode);
+                                  .Any(p => p.ProductCode == productCode && p.Id != productId);
 
             if (exists)
             {
