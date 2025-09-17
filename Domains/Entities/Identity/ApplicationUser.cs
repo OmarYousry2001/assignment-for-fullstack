@@ -6,7 +6,6 @@ namespace Domains.Identity
 {
     public class ApplicationUser : IdentityUser
     {
-        public  string UserName { get; set; }  
 
         public DateTime LastLoginTime { get; set; }
         [EncryptColumn]

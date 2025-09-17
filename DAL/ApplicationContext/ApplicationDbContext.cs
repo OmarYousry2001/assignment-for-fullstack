@@ -12,7 +12,6 @@ namespace DAL.ApplicationContext
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser , Role, string>
     {
         private readonly IEncryptionProvider _encryptionProvider;
-
         public DbSet<UserRefreshToken> UserRefreshToken { get; set; }
         public DbSet<Product> Products { get; set; }
 
@@ -20,7 +19,7 @@ namespace DAL.ApplicationContext
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            _encryptionProvider = new GenerateEncryptionProvider("1326431c78014aa894a4daeee1a32276");
+            _encryptionProvider = new GenerateEncryptionProvider("6326131c78014aa894a4daeee1a32276");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

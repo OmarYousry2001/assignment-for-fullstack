@@ -92,19 +92,19 @@ namespace API
             app.MapControllers();
 
             #region Seeding Data
-            //using (var scope = app.Services.CreateScope())
-            //{
-            //    var services = scope.ServiceProvider;
-            //    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-            //    var roleManager = services.GetRequiredService<RoleManager<Role>>();
-            //    var dbContext = services.GetRequiredService<ApplicationDbContext>();
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                var roleManager = services.GetRequiredService<RoleManager<Role>>();
+                var dbContext = services.GetRequiredService<ApplicationDbContext>();
 
-            //    // Apply migrations
-            //    await dbContext.Database.MigrateAsync();
+                // Apply migrations
+                await dbContext.Database.MigrateAsync();
 
-            //    // Seed data
-            //    await ContextConfigurations.SeedDataAsync(dbContext, userManager, roleManager);
-            //}
+                // Seed data
+                await ContextConfigurations.SeedDataAsync(dbContext, userManager, roleManager);
+            }
             #endregion
 
             app.Run();

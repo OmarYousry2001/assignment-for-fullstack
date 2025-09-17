@@ -1,18 +1,15 @@
 ﻿using Domains.AppMetaData;
-using Domains.Entities;
 using Domains.Entities.Identity;
-
 using Domains.Identity;
 using EcommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace DAL.ApplicationContext
 {
     public class ContextConfigurations
     {
-        private static readonly string seedAdminEmail = "admin123@gamil.com";
+        private static readonly string seedAdminEmail = "admin@gmail.com";
         private static readonly string seedAdminPassword = "Admin-123";
 
         public static async Task SeedDataAsync(ApplicationDbContext context,
@@ -106,7 +103,7 @@ namespace DAL.ApplicationContext
                 adminUser = new ApplicationUser
                 {
                     Id = id,
-                    UserName = "Admin000",
+                    UserName = "admin",
                     Email = adminEmail,
                     EmailConfirmed = true,
                 };

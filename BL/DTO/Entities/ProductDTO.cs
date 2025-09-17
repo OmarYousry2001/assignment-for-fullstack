@@ -32,7 +32,7 @@ namespace BL.DTO.Entities
         public int MinimumQuantity { get; set; }
 
         [Required(ErrorMessageResourceName = "FieldRequired", ErrorMessageResourceType = typeof(ValidationResources))]
-        [Range(1, 100, ErrorMessageResourceName = "ValueMustBeBetween", ErrorMessageResourceType = typeof(ValidationResources))]
+        [Range(0, 1, ErrorMessageResourceName = "ValueMustBeBetween", ErrorMessageResourceType = typeof(ValidationResources))]
         public double DiscountRate { get; set; }
 
         public string? ImagePath { get; set; }

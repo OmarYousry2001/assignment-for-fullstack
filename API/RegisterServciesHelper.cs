@@ -1,9 +1,11 @@
 ﻿using BL.Abstracts;
 using BL.Contracts.GeneralService.CMS;
 using BL.Contracts.IMapper;
+using BL.Contracts.Services.Custom;
 using BL.GeneralService.CMS;
 using BL.Mapper;
 using BL.Mapper.Base;
+using BL.Services.Custom;
 using DAL.ApplicationContext;
 using DAL.Contracts.Repositories.Generic;
 using DAL.Contracts.UnitOfWork;
@@ -56,7 +58,7 @@ namespace API
                 option.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 option.User.RequireUniqueEmail = true;
-          
+
             })
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders(); 
@@ -261,8 +263,8 @@ namespace API
             builder.Services.AddHttpContextAccessor();
 
             // Project Services
-            //builder.Services.AddScoped<ICategoryService, CategoryService>();
-  
+            builder.Services.AddScoped<IProductService, ProductService>();
+
 
 
             #endregion

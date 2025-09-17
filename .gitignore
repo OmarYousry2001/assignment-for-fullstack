@@ -363,4 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 appsettings.Development.json
-ContextConfigurations
+appsettings.json
+ContextConfigurations.cs

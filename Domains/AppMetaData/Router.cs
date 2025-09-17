@@ -25,7 +25,7 @@
 
         public static class ProductRouting
         {
-            public const string Prefix = Rule + "Product /";
+            public const string Prefix = Rule + "Product/";
             public const string GetAll = Prefix + "GetAll";
             public const string GetById = Prefix + SingleRoute;
             public const string Create = Prefix + "Create";
