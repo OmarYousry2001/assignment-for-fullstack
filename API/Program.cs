@@ -35,7 +35,7 @@ namespace API
 };
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
-                DefaultRequestCulture = new RequestCulture("ar-EG"),
+                DefaultRequestCulture = new RequestCulture("en-US"),
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures,
                 RequestCultureProviders = new List<IRequestCultureProvider>
@@ -46,11 +46,10 @@ namespace API
             });
             #endregion
 
-
             app.UseStaticFiles();
             // Enable GZip compression
             app.UseResponseCompression();
-
+            // Use RateLimiting Middleware
             app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseHttpsRedirection();

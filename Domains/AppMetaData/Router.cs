@@ -8,19 +8,7 @@
         public const string version = "V1";
         public const string Rule = root + "/" + version + "/";
 
-        public static class ProjectRouting
-        {
-            public const string Prefix = Rule + "Project/";
-            public const string GetAll = Prefix + "GetAll";
-            public const string PaginatedList = Prefix + "PaginatedList";
-            public const string GetById = Prefix + SingleRoute;
-            public const string Create = Prefix + "Create";
-            public const string Update = Prefix + "Update";
-            public const string Delete = Prefix + SingleRoute;
-            public const string GetByCategoryId = Prefix + "GetByCategoryId/" + SingleRoute;
-
-            
-        }
+    
     
 
         public static class ProductRouting

@@ -9,7 +9,7 @@ using Shared.DTOs.User;
 namespace API.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class ProductController : AppControllerBase
     {
         #region Fields

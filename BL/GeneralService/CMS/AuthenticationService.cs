@@ -44,7 +44,7 @@ namespace BL.GeneralService.CMS
         #region Actions
 
 
-        public async Task<JwtAuthTokenResponse> GetJwtTokenAsync(ApplicationUser user, bool rememberMe)
+        public async Task<JwtAuthTokenResponse> GetJwtTokenAsync(ApplicationUser user, bool rememberMe =false)
         {
             var jwtToken = await GenerateJwtSecurityTokenAsync(user, rememberMe);
 
@@ -327,7 +327,7 @@ namespace BL.GeneralService.CMS
             await UpdateUserAsync(user); 
 
             //Generate JWTAuthToken
-            var response = await GetJwtTokenAsync(user , loginDto.RememberMe);
+            var response = await GetJwtTokenAsync(user);
             //var response = await GetJwtTokenAsync(user, loginDto.RememberMe);
 
             //return token

@@ -17,8 +17,6 @@ namespace Shared.DTOs.User
          ErrorMessageResourceName = "PasswordComplexity", ErrorMessageResourceType = typeof(ValidationResources))]
         public string Password { get; set; } = null!;
 
-        //public string? ReturnUrl { get; set; }
-        [Required(ErrorMessageResourceName = "FieldRequired", ErrorMessageResourceType = typeof(ValidationResources))]
-        public bool RememberMe { get; set; }
+    
     }
 }
