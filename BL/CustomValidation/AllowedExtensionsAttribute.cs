@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Resources;
-using Resources.Data.Resources;
 using System.ComponentModel.DataAnnotations;
 
 namespace Shared.CustomValidation
@@ -21,9 +20,7 @@ namespace Shared.CustomValidation
                 var extension = Path.GetExtension(file.FileName).ToLower();
                 if (!_extensions.Contains(extension))
                 {
-                    //return new ValidationResult($"Only {string.Join(", ", _extensions)} file formats are allowed.");
                     return new ValidationResult($"{ValidationResources.InvalidFormat}");
-
                 }
             }
             return ValidationResult.Success;

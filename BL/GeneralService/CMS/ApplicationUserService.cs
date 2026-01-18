@@ -397,7 +397,14 @@ namespace BL.GeneralService.CMS
         }
 
 
-     
+        public async Task<Response<IList<string>>> GetRolesForUser(string userId)
+        {
+            var user = await FindByIdAsync(userId);
+            if (user == null) return NotFound<IList<string>>(UserResources.UserNotFound);
+
+             return Success( await _userManager.GetRolesAsync(user));
+
+        }
 
         #endregion
     }

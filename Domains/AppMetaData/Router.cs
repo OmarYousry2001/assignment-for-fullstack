@@ -40,8 +40,10 @@
             public const string ResetPassword = Prefix + "ResetPassword";
             public const string IsAuthenticated = Prefix + "IsAuthenticated";
             public const string GetUserName = Prefix + "GetUserName";
+            public const string GetRolesForUser = Prefix + "GetRolesForUser";
 
             
+
         }
         public static class AuthenticationRouting
         {

@@ -7,7 +7,6 @@ namespace Resources.Data.Resources
     public static class ResourceManager
     {
         private static Language _currentLanguage;
-  
 
         // Property to get or set the current culture
         public static Language CurrentLanguage
@@ -17,8 +16,6 @@ namespace Resources.Data.Resources
             {
                 _currentLanguage = value;
                 SetCultureForResources(_currentLanguage);
-
-               
             }
         }
 

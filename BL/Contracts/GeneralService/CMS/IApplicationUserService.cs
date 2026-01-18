@@ -1,5 +1,4 @@
-﻿using BL.DTO.Entities;
-using BL.DTO.User;
+﻿using BL.DTO.User;
 using BL.GenericResponse;
 using Domains.Identity;
 using Shared.DTOs.User;
@@ -10,7 +9,6 @@ namespace BL.Abstracts
     {
         public Task<ApplicationUser> CreateUser(ApplicationUser user, string password);
         public Task SendConfirmUserEmailToken(ApplicationUser user);
-        //Task ConfirmUserEmail(ApplicationUser user, string code);
         Task<Response<string>> ConfirmUserEmail(string userId, string code);
         Task<ApplicationUser?> FindByIdAsync(string userId);
         public Task<string> DeleteUserAsync(ApplicationUser user);
@@ -18,7 +16,6 @@ namespace BL.Abstracts
         Task<bool> CheckPasswordAsync(ApplicationUser user, string password);
         Task<string> UpdateAsync(ApplicationUser user);
         public Task<Response<string>> ChangePasswordAsync(string userId, ChangePasswordDto changePasswordDto);
-
         public Task<Response<string>> SendResetUserPasswordCode(string email);
         Task<string> ConfirmResetPasswordCodeAsync(string Code, string Email);
         Task<string> ResetPassword(string ResetCode, string newPassword);
@@ -30,7 +27,6 @@ namespace BL.Abstracts
         public Task<Response<RegisterDTO>> RegisterAsync(RegisterDTO user);
         public  Task<Response<string>> ResetPassword(RestPasswordDTO restPassword);
         public  Task<Response<string>> SendResetUserPasswordCodeForAngular(string email);
-
-
+        public  Task<Response<IList<string>>> GetRolesForUser(string userId);
     }
 }

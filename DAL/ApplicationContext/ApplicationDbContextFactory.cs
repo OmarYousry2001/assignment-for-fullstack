@@ -4,6 +4,10 @@ using Microsoft.Extensions.Configuration;
 
 namespace DAL.ApplicationContext
 {
+    /// <summary>
+    /// This factory is necessary when:
+    /// The DbContext resides in a separate project without a direct reference to the Startup project
+    /// </summary>
     public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
         public ApplicationDbContext CreateDbContext(string[] args)

@@ -28,13 +28,10 @@ namespace API.Controllers
         /// <summary>
         /// Get all Products.
         /// </summary>
-        [AllowAnonymous]
         [HttpGet(Router.ProductRouting.GetAll)]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _productService.GetAllAsync();
-            return NewResult(result);
-
+            return NewResult(await _productService.GetAllAsync());
         }
 
         /// <summary>
@@ -43,8 +40,7 @@ namespace API.Controllers
         [HttpGet(Router.ProductRouting.GetById)]
         public async Task<IActionResult> GetById(Guid id )
         {
-            var result = await _productService.FindByIdAsync(id);
-            return NewResult(result);
+            return NewResult(await _productService.FindByIdAsync(id));
         }
 
         /// <summary>
@@ -53,8 +49,7 @@ namespace API.Controllers
         [HttpPost(Router.ProductRouting.Create)]
         public async Task<IActionResult> Create([FromForm] ProductDTO productDTO)
         {
-            var result = await _productService.SaveAsync(productDTO, GuidUserId);
-            return NewResult(result);
+            return NewResult(await _productService.SaveAsync(productDTO, GuidUserId));
         }
 
         /// <summary>
@@ -63,8 +58,7 @@ namespace API.Controllers
         [HttpPut(Router.ProductRouting.Update)]
         public async Task<ActionResult<RegisterDTO>> Update([FromForm] ProductDTO productDTO)
         {
-            var result = await _productService.SaveAsync(productDTO, GuidUserId);
-            return NewResult(result);
+            return NewResult(await _productService.SaveAsync(productDTO, GuidUserId));
         }
 
         /// <summary>
@@ -73,8 +67,7 @@ namespace API.Controllers
         [HttpDelete(Router.ProductRouting.Delete)]
         public async Task<IActionResult> Delete(Guid id )
         {
-            var result = await _productService.DeleteAsync(id, GuidUserId);
-            return NewResult(result);
+            return NewResult(await _productService.DeleteAsync(id, GuidUserId));
         }
     }
     #endregion

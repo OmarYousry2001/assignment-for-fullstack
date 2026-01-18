@@ -41,7 +41,7 @@ namespace API
                 RequestCultureProviders = new List<IRequestCultureProvider>
     {
         new CookieRequestCultureProvider(),
-        new AcceptLanguageHeaderRequestCultureProvider()
+        //new AcceptLanguageHeaderRequestCultureProvider()
     }
             });
             #endregion

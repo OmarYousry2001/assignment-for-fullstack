@@ -50,7 +50,9 @@ namespace BL.GeneralService.CMS
 
             var accessToken = new JwtSecurityTokenHandler().WriteToken(jwtToken);
 
-            var savedUserRefreshToken = await SaveUserRefreshTokenAsync(user, accessToken, jwtToken.Id);
+            var jwtTokenId = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Jti)?.Value;
+
+            var savedUserRefreshToken = await SaveUserRefreshTokenAsync(user, accessToken, jwtTokenId);
 
             var refreshTokenForResponse = GetRefreshTokenForResponse(savedUserRefreshToken.ExpiryDate, user.UserName, savedUserRefreshToken.RefreshToken);
 
@@ -65,6 +67,7 @@ namespace BL.GeneralService.CMS
             var userRoles = await _userManager.GetRolesAsync(user);
             var userClaims = await GetClaims(user, userRoles.ToList());
 
+
             var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_jwtSettings.Secret));
 
             var signingCred = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
@@ -72,6 +75,8 @@ namespace BL.GeneralService.CMS
             var tokenExpiry = rememberMe
                 ? DateTime.UtcNow.AddDays(7)
                 : DateTime.UtcNow.AddMinutes(_jwtSettings.accessTokenExpireDateInMinutes);
+
+
 
             var jwtToken = new JwtSecurityToken
             (
@@ -128,6 +133,7 @@ namespace BL.GeneralService.CMS
                 new Claim(ClaimTypes.Name,user.UserName),
                //new Claim(nameof(UserClaimModel.PhoneNumber), user.PhoneNumber),
                 new Claim(ClaimTypes.Email,user.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) // for JwtId
             };
             foreach (var role in userRoles)
             {

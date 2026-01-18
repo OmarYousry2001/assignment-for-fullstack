@@ -6,6 +6,7 @@ using BL.GenericResponse;
 using BL.Services.Generic;
 using DAL.Contracts.Repositories.Generic;
 using EcommerceAPI.Domain.Entities;
+using Resources;
 
 namespace BL.Services.Custom
 {
@@ -30,10 +31,9 @@ namespace BL.Services.Custom
             var dtoList = _mapper.MapList<Product, ProductDTO>(entitiesList);
             return Success(dtoList);
         }
-     
         public override async Task<Response<bool>> SaveAsync(ProductDTO dto, Guid userId)
         {
-            if (dto.Image == null && dto.ImagePath == null) return BadRequest<bool>();
+            if (dto.Image == null && dto.ImagePath == null) return BadRequest<bool>(ValidationResources.ImageRequired);
             var entity = _mapper.MapModel<ProductDTO, Product>(dto);
 
 

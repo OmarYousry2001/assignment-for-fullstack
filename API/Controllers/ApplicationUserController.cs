@@ -1,7 +1,6 @@
 ﻿using API.Base;
 using BL.Abstracts;
 using BL.Contracts.GeneralService.CMS;
-using BL.DTO.Entities;
 using BL.DTO.User;
 using Domains.AppMetaData;
 using Microsoft.AspNetCore.Authorization;
@@ -27,15 +26,19 @@ namespace API.Controllers
             _currentUserService = currentUserService;
         }
         #endregion
+
+        #region Apis
+
+        /// <summary>
+        /// Register a new user and return the registration result.
+        /// </summary>
         [HttpPost(Router.ApplicationUserRouting.Register)]
         public async Task<ActionResult<RegisterDTO>> Register(RegisterDTO registerDTO)
         {
             var result = await _applicationUserService.RegisterAsync(registerDTO);
             return NewResult(result);
-
         }
 
-        #region Apis
         /// <summary>
         /// Send a reset password code to the user's email.
         /// </summary>
@@ -79,12 +82,23 @@ namespace API.Controllers
         }
 
         /// <summary>
+        /// Get all roles for the currently authenticated user.
+        /// </summary>
+        [Authorize]
+        [HttpGet(Router.ApplicationUserRouting.GetRolesForUser)]
+        public async Task<IActionResult> GetRolesForUser()
+        {
+
+            return NewResult(await _applicationUserService.GetRolesForUser(UserId));
+        }
+        [HttpGet(Router.ApplicationUserRouting.GetUserName)]
+
+        /// <summary>
         /// Get the username of the current user.
         /// </summary>
-        [HttpGet(Router.ApplicationUserRouting.GetUserName)]
-        public IActionResult GetUserName()
+        public async Task<IActionResult> GetUserName()
         {
-            return NewResult(_currentUserService.GetUserName());
+            return NewResult(await _currentUserService.GetUserNameAsync());
 
         } 
         #endregion

@@ -49,7 +49,7 @@ namespace BL.GeneralService.CMS
             return Success(user.UserName);
         }
 
-        public Response<string?> GetUserName()
+        private Response<string?> GetUserName()
         {
             if(_httpContextAccessor.HttpContext?.User?.Identity?.Name == null)
             {

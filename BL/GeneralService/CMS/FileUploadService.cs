@@ -38,11 +38,9 @@ namespace BL.GeneralService.CMS
 
             var archivePath = Path.Combine(archiveFolder, fileName);
 
-            // لو فيه صورة بنفس الاسم، احذفها قبل النقل لتفادي الخطأ
             if (File.Exists(archivePath))
                 File.Delete(archivePath);
 
-            // نقل الصورة إلى الأرشيف
             File.Move(sourcePath, archivePath);
         }
 
@@ -77,10 +75,19 @@ namespace BL.GeneralService.CMS
             if (!_allowedExtensions.Contains(extension))
                 throw new ArgumentException($"{ValidationResources.InvalidFormat} {string.Join(", ", _allowedExtensions)}");
 
-            // cleans names
+            /// <summary>
+            /// Cleans a file name by removing invalid characters and trimming extra spaces.
+            /// </summary>
+            /// <example>
+            /// Example:
+            /// <code>
+            /// string fileName = CleanFileName("my:file?.txt");  
+            /// // Result: "myfile.txt"
+            /// </code>
+            /// </example>
             string CleanFileName(string input)
             {
-                var invalidChars = Path.GetInvalidFileNameChars();
+                var invalidChars = Path.GetInvalidFileNameChars(); //[\, /, :, *, ?, ", <, >, |]
                 return new string(input.Where(ch => !invalidChars.Contains(ch)).ToArray()).Trim();
             }
 

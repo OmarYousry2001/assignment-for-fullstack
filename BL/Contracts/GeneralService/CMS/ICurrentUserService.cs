@@ -11,8 +11,6 @@ namespace BL.Contracts.GeneralService.CMS
         public Guid GetUserId();
         public  Task<bool> CheckIfRuleExist(string roleName);
         public Task<Response<string?>> GetUserNameAsync();
-        public Response<string?> GetUserName();
 
-        
     }
 }
