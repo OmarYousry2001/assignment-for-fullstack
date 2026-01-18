@@ -81,3 +81,27 @@ The project follows **N-Tier Architecture** with clear separation of concerns:
 "ConnectionStrings": {
   "DefaultConnection": "Data Source=.;Initial Catalog=assignment-for-fullstack;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;"
 }
+
+## Setup Steps
+# 1. Clone the repository
+git clone https://github.com/OmarYousry2001/assignment-for-fullstack.git
+
+# 2. Navigate to the project folder
+cd assignment-for-fullstack
+
+# 3. Install dependencies
+dotnet restore
+
+# 4. Update the database
+dotnet ef database update
+
+# 5. Run the project
+dotnet run
+
+## Test Credentials
+
+Administrator:
+Email: admin@gmail.com
+Password: Admin-123
+
+
