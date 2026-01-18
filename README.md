@@ -86,16 +86,16 @@ The project follows **N-Tier Architecture** with clear separation of concerns:
  1. Clone the repository
 git clone https://github.com/OmarYousry2001/assignment-for-fullstack.git
 
- 2. Navigate to the project folder
+# 2. Navigate to the project folder
 cd assignment-for-fullstack
 
- 3. Install dependencies
+# 3. Install dependencies
 dotnet restore
 
- 4. Update the database
+# 4. Update the database
 dotnet ef database update
 
- 5. Run the project
+# 5. Run the project
 dotnet run
 
 ## Test Credentials
