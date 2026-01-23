@@ -24,7 +24,6 @@ The project follows **N-Tier Architecture** with clear separation of concerns:
 - ASP.NET Core Identity  
 - JWT Authentication  
 - Serilog (Logging to SQL Server & Console)  
-- Redis (Caching)  
 - AutoMapper  
 - Swagger (OpenAPI)  
 - Rate Limiting  
